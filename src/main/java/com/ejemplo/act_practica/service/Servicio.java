@@ -18,11 +18,16 @@ public class Servicio {
         this.repositorio = repositorio;
     }
 
-    public void guardarModelo(Modelo modelo) {
-        repositorio.guardarModelo(modelo);
+    public void guardarTarea(Modelo modelo) {
+        repositorio.guardarTarea(modelo);
     }
 
-    public List<Modelo> obtenerTodosLosModelos() {
-        return repositorio.obtenerTodosLosModelos();
+    public List<Modelo> obtenerTodasLasTareas() {
+        return repositorio.obtenerTodasLasTareas();
     }
+
+    public List<Modelo> obtenerTareaPorid(Long id) {
+        return repositorio.findByid(id);
+    }
+
 }

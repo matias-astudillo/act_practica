@@ -10,11 +10,22 @@ import java.util.List;
 public class Repositorio {
     private final List<Modelo> listaDeModelos = new ArrayList<>();
 
-    public void guardarModelo(Modelo modelo) {
+    public void guardarTarea(Modelo modelo) {
         listaDeModelos.add(modelo);
     }
 
-    public List<Modelo> obtenerTodosLosModelos() {
+    public List<Modelo> obtenerTodasLasTareas() {
         return new ArrayList<>(listaDeModelos);
     }
+
+    public List<Modelo> findByid(Long id) {
+        List<Modelo> resultados = new ArrayList<>();
+        for (Modelo modelo : listaDeModelos) {
+            if (modelo.getid().equals(id)) {
+                resultados.add(modelo);
+            }
+        }
+        return resultados;
+    }
+
 }

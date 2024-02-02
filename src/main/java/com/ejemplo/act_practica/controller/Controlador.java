@@ -21,14 +21,18 @@ public class Controlador {
     }
 
     @GetMapping
-    public List<Modelo> obtenerTodosLosModelos() {
-        return servicio.obtenerTodosLosModelos();
+    public List<Modelo> obtenerTodasLasTareas() {
+        return servicio.obtenerTodasLasTareas();
     }
 
     @PostMapping
-    public void agregarModelo(@RequestBody Modelo modelo) {
-        servicio.guardarModelo(modelo);
+    public void agregarTarea(@RequestBody Modelo modelo) {
+        servicio.guardarTarea(modelo);
     }
 
+    @GetMapping("/{id}")
+    public List<Modelo> obtenerTareaPorid(@PathVariable Long id) {
+        return servicio.obtenerTareaPorid(id);
+    }
 
 }
