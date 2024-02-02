@@ -35,4 +35,10 @@ public class Controlador {
         return servicio.obtenerTareaPorid(id);
     }
 
+    @PutMapping("/{id}")
+    public void actualizarEstado(@PathVariable Long id, @RequestBody Map<String, Object> cuerpoSolicitud) {
+        Boolean nuevoEstado = (boolean) cuerpoSolicitud.get("nuevoEstado");
+        servicio.actualizarEstado(id, nuevoEstado);
+    }
+
 }

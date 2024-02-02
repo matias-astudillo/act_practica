@@ -28,4 +28,13 @@ public class Repositorio {
         return resultados;
     }
 
+    public void actualizarEstado(Long id, Boolean nuevoEstado) {
+        for (Modelo modelo : listaDeModelos) {
+            if (modelo.getid().equals(id)) {
+                modelo.setcompletado(nuevoEstado);
+                break;
+            }
+        }
+    }
+
 }

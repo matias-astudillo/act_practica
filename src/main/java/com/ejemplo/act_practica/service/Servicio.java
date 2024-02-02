@@ -30,4 +30,8 @@ public class Servicio {
         return repositorio.findByid(id);
     }
 
+    public void actualizarEstado(Long id, Boolean nuevoEstado) {
+        repositorio.actualizarEstado(id, nuevoEstado);
+    }
+
 }
