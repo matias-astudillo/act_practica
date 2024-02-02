@@ -37,4 +37,8 @@ public class Repositorio {
         }
     }
 
+    public void eliminarTarea(Long id) {
+        listaDeModelos.removeIf(modelo -> modelo.getid().equals(id));
+    }
+
 }

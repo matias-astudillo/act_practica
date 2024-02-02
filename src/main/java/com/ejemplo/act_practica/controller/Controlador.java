@@ -41,4 +41,9 @@ public class Controlador {
         servicio.actualizarEstado(id, nuevoEstado);
     }
 
+    @DeleteMapping("/{id}")
+    public void eliminarTarea(@PathVariable Long id) {
+        servicio.eliminarTarea(id);
+    }
+
 }

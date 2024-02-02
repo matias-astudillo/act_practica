@@ -34,4 +34,8 @@ public class Servicio {
         repositorio.actualizarEstado(id, nuevoEstado);
     }
 
+    public void eliminarTarea(Long id) {
+        repositorio.eliminarTarea(id);
+    }
+
 }
