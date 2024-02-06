@@ -36,9 +36,8 @@ public class Controlador {
     }
 
     @PutMapping("/{id}")
-    public void actualizarEstado(@PathVariable Long id, @RequestBody Map<String, Object> cuerpoSolicitud) {
-        Boolean nuevoEstado = (boolean) cuerpoSolicitud.get("nuevoEstado");
-        servicio.actualizarEstado(id, nuevoEstado);
+    public void actualizarEstado(@PathVariable Long id, @RequestBody boolean completado) {
+    servicio.actualizarEstado(id, completado);
     }
 
     @DeleteMapping("/{id}")

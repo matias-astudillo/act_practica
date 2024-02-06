@@ -21,7 +21,7 @@ public class Repositorio {
     public List<Modelo> findByid(Long id) {
         List<Modelo> resultados = new ArrayList<>();
         for (Modelo modelo : listaDeModelos) {
-            if (modelo.getid().equals(id)) {
+            if (modelo.getId().equals(id)) {
                 resultados.add(modelo);
             }
         }
@@ -30,15 +30,15 @@ public class Repositorio {
 
     public void actualizarEstado(Long id, Boolean nuevoEstado) {
         for (Modelo modelo : listaDeModelos) {
-            if (modelo.getid().equals(id)) {
-                modelo.setcompletado(nuevoEstado);
+            if (modelo.getId().equals(id)) {
+                modelo.setCompletado(nuevoEstado);
                 break;
             }
         }
     }
 
     public void eliminarTarea(Long id) {
-        listaDeModelos.removeIf(modelo -> modelo.getid().equals(id));
+        listaDeModelos.removeIf(modelo -> modelo.getId().equals(id));
     }
 
 }

@@ -16,27 +16,27 @@ public class Modelo {
 
     // Getters y Setters...
 
-    public Long getid() {
+    public Long getId() {
         return id;
     }
 
-    public void setid(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getnombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setnombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public Boolean getcompletado() {
+    public Boolean getCompletado() {
         return completado;
     }
 
-    public void setcompletado(Boolean completado) {
+    public void setCompletado(Boolean completado) {
         this.completado = completado;
     }
 }
