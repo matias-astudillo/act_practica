@@ -2,43 +2,43 @@ package com.ejemplo.act_practica.repository;
 
 import com.ejemplo.act_practica.model.Modelo;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class Repositorio {
-    private final List<Modelo> listaDeModelos = new ArrayList<>();
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public void guardarTarea(Modelo modelo) {
-        listaDeModelos.add(modelo);
+        System.out.println(modelo);
+        String sql = "INSERT INTO tareas (id, nombre, completado) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql, modelo.getId(), modelo.getNombre(), modelo.getCompletado());
+        System.out.println(modelo);
     }
 
     public List<Modelo> obtenerTodasLasTareas() {
-        return new ArrayList<>(listaDeModelos);
+        String sql = "SELECT * FROM tareas";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Modelo.class));
     }
 
     public List<Modelo> findByid(Long id) {
-        List<Modelo> resultados = new ArrayList<>();
-        for (Modelo modelo : listaDeModelos) {
-            if (modelo.getId().equals(id)) {
-                resultados.add(modelo);
-            }
-        }
-        return resultados;
+        String sql = "SELECT * FROM tareas WHERE id = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Modelo.class), id);
     }
 
     public void actualizarEstado(Long id, Boolean nuevoEstado) {
-        for (Modelo modelo : listaDeModelos) {
-            if (modelo.getId().equals(id)) {
-                modelo.setCompletado(nuevoEstado);
-                break;
-            }
-        }
+        String sql = "UPDATE tareas SET completado = ? WHERE id = ?";
+        jdbcTemplate.update(sql, nuevoEstado, id);
     }
 
     public void eliminarTarea(Long id) {
-        listaDeModelos.removeIf(modelo -> modelo.getId().equals(id));
+        String sql = "DELETE FROM tareas WHERE id = ?";
+        jdbcTemplate.update(sql, id);
     }
 
 }
