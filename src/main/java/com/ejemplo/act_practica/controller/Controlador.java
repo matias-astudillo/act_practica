@@ -1,5 +1,5 @@
 package com.ejemplo.act_practica.controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.ejemplo.act_practica.model.Modelo;
 import com.ejemplo.act_practica.service.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/tareas")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controlador {
 
     private final Servicio servicio;
